@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_28f188827d435a9fa424c752f72d4839 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <div style="position:fixed;bottom:30px;left:30px;z-index:1000;
+                background:white;padding:12px 16px;border-radius:8px;
+                border:1px solid #ccc;font-family:Arial;font-size:13px">
+      <b>Year-over-Year Price Change</b><br>
+      <span style="color:#27500A">&#9679;</span> &gt;10% — Strong growth<br>
+      <span style="color:#3B6D11">&#9679;</span> 5–10% — Moderate growth<br>
+      <span style="color:#639922">&#9679;</span> 0–5% — Slight growth<br>
+      <span style="color:#E24B4A">&#9679;</span> 0 to -5% — Declining<br>
+      <span style="color:#A32D2D">&#9679;</span> &lt;-5% — Sharp decline
+    </div>
+    
+    
+            <div class="folium-map" id="map_28f188827d435a9fa424c752f72d4839" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_28f188827d435a9fa424c752f72d4839 = L.map(
+                "map_28f188827d435a9fa424c752f72d4839",
+                {
+                    center: [56.0, -96.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_35941922483b63ce52d7e28ae56fe364 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "CartoDB", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_35941922483b63ce52d7e28ae56fe364.addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+            var circle_marker_df8b78a71be0da46e7ecbfa873e6e994 = L.circleMarker(
+                [51.0447, -114.0719],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#639922", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+        var popup_9210444d36d61d8d1d3a0d035fb20241 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_906e284bf26aacb3fcf3c055ea3abe77 = $(`<div id="html_906e284bf26aacb3fcf3c055ea3abe77" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Calgary</h4>           <p style="font-size:13px;margin:0">             <b>YoY change: +0.2%</b><br>             Current price: $570,734<br>             3-month change: -6.5%           </p>         </div>         </div>`)[0];
+                popup_9210444d36d61d8d1d3a0d035fb20241.setContent(html_906e284bf26aacb3fcf3c055ea3abe77);
+            
+        
+
+        circle_marker_df8b78a71be0da46e7ecbfa873e6e994.bindPopup(popup_9210444d36d61d8d1d3a0d035fb20241)
+        ;
+
+        
+    
+    
+            circle_marker_df8b78a71be0da46e7ecbfa873e6e994.bindTooltip(
+                `<div>
+                     Calgary: +0.2% YoY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_df24b9e9b2e816c1e34e61753cb633b4 = L.circleMarker(
+                [53.5461, -113.4938],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E24B4A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+        var popup_211dddcaa72c2a47a9a4d9f892c825b3 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_bc01b4e72cfff222c9a28052df0fa33a = $(`<div id="html_bc01b4e72cfff222c9a28052df0fa33a" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Edmonton</h4>           <p style="font-size:13px;margin:0">             <b>YoY change: -0.5%</b><br>             Current price: $429,514<br>             3-month change: -3.8%           </p>         </div>         </div>`)[0];
+                popup_211dddcaa72c2a47a9a4d9f892c825b3.setContent(html_bc01b4e72cfff222c9a28052df0fa33a);
+            
+        
+
+        circle_marker_df24b9e9b2e816c1e34e61753cb633b4.bindPopup(popup_211dddcaa72c2a47a9a4d9f892c825b3)
+        ;
+
+        
+    
+    
+            circle_marker_df24b9e9b2e816c1e34e61753cb633b4.bindTooltip(
+                `<div>
+                     Edmonton: -0.5% YoY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_5b121d6d2fa26fafeb116b9caec6f576 = L.circleMarker(
+                [44.6488, -63.5752],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3B6D11", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+        var popup_abc7f1e49bf85dc5dd9f753a918ad7a6 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_769f56f88beeb46bbf8545ece384e051 = $(`<div id="html_769f56f88beeb46bbf8545ece384e051" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Halifax</h4>           <p style="font-size:13px;margin:0">             <b>YoY change: +8.7%</b><br>             Current price: $503,803<br>             3-month change: -1.5%           </p>         </div>         </div>`)[0];
+                popup_abc7f1e49bf85dc5dd9f753a918ad7a6.setContent(html_769f56f88beeb46bbf8545ece384e051);
+            
+        
+
+        circle_marker_5b121d6d2fa26fafeb116b9caec6f576.bindPopup(popup_abc7f1e49bf85dc5dd9f753a918ad7a6)
+        ;
+
+        
+    
+    
+            circle_marker_5b121d6d2fa26fafeb116b9caec6f576.bindTooltip(
+                `<div>
+                     Halifax: +8.7% YoY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e100427a3f8c0ccee0f3d6943f2ef021 = L.circleMarker(
+                [43.2557, -79.8711],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3B6D11", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+        var popup_89265d3f89e454bbac7b3d4a44645a5e = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_d54084cd3bd3784028bbd41dc770dc03 = $(`<div id="html_d54084cd3bd3784028bbd41dc770dc03" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Hamilton</h4>           <p style="font-size:13px;margin:0">             <b>YoY change: +8.7%</b><br>             Current price: $838,780<br>             3-month change: -5.6%           </p>         </div>         </div>`)[0];
+                popup_89265d3f89e454bbac7b3d4a44645a5e.setContent(html_d54084cd3bd3784028bbd41dc770dc03);
+            
+        
+
+        circle_marker_e100427a3f8c0ccee0f3d6943f2ef021.bindPopup(popup_89265d3f89e454bbac7b3d4a44645a5e)
+        ;
+
+        
+    
+    
+            circle_marker_e100427a3f8c0ccee0f3d6943f2ef021.bindTooltip(
+                `<div>
+                     Hamilton: +8.7% YoY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f8c289c028a6d059a5ed7b8c5d3a85e0 = L.circleMarker(
+                [45.5017, -73.5673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#639922", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+        var popup_cc0dd869992ff4de393f1a01ddff90df = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_d390f3bf9abab772537967abae0f1c73 = $(`<div id="html_d390f3bf9abab772537967abae0f1c73" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Montreal</h4>           <p style="font-size:13px;margin:0">             <b>YoY change: +2.5%</b><br>             Current price: $536,742<br>             3-month change: -6.9%           </p>         </div>         </div>`)[0];
+                popup_cc0dd869992ff4de393f1a01ddff90df.setContent(html_d390f3bf9abab772537967abae0f1c73);
+            
+        
+
+        circle_marker_f8c289c028a6d059a5ed7b8c5d3a85e0.bindPopup(popup_cc0dd869992ff4de393f1a01ddff90df)
+        ;
+
+        
+    
+    
+            circle_marker_f8c289c028a6d059a5ed7b8c5d3a85e0.bindTooltip(
+                `<div>
+                     Montreal: +2.5% YoY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_589c264d0e60f3b806ca0c810833142f = L.circleMarker(
+                [45.4215, -75.6972],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3B6D11", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+        var popup_dbddae1d606cbe7272b4e53ad28b989b = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_f63d213c0e4efdc38784d60be0dc9b9f = $(`<div id="html_f63d213c0e4efdc38784d60be0dc9b9f" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Ottawa</h4>           <p style="font-size:13px;margin:0">             <b>YoY change: +9.2%</b><br>             Current price: $670,724<br>             3-month change: -1.5%           </p>         </div>         </div>`)[0];
+                popup_dbddae1d606cbe7272b4e53ad28b989b.setContent(html_f63d213c0e4efdc38784d60be0dc9b9f);
+            
+        
+
+        circle_marker_589c264d0e60f3b806ca0c810833142f.bindPopup(popup_dbddae1d606cbe7272b4e53ad28b989b)
+        ;
+
+        
+    
+    
+            circle_marker_589c264d0e60f3b806ca0c810833142f.bindTooltip(
+                `<div>
+                     Ottawa: +9.2% YoY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a684917db721518180c69ed1d5c51038 = L.circleMarker(
+                [43.6532, -79.3832],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3B6D11", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+        var popup_bc92a00d3a3c66b7541f285f3910038c = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_56b5a9848d22fa90b2a60ad845bc80db = $(`<div id="html_56b5a9848d22fa90b2a60ad845bc80db" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Toronto</h4>           <p style="font-size:13px;margin:0">             <b>YoY change: +7.3%</b><br>             Current price: $1,144,168<br>             3-month change: -0.3%           </p>         </div>         </div>`)[0];
+                popup_bc92a00d3a3c66b7541f285f3910038c.setContent(html_56b5a9848d22fa90b2a60ad845bc80db);
+            
+        
+
+        circle_marker_a684917db721518180c69ed1d5c51038.bindPopup(popup_bc92a00d3a3c66b7541f285f3910038c)
+        ;
+
+        
+    
+    
+            circle_marker_a684917db721518180c69ed1d5c51038.bindTooltip(
+                `<div>
+                     Toronto: +7.3% YoY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_789610a37b4e7813a11039291c3cc3e0 = L.circleMarker(
+                [49.2827, -123.1207],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+        var popup_143104945201037905f523c9be9576ac = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_9c92c245fce60e4c89895e6b0f202947 = $(`<div id="html_9c92c245fce60e4c89895e6b0f202947" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Vancouver</h4>           <p style="font-size:13px;margin:0">             <b>YoY change: +10.7%</b><br>             Current price: $1,267,223<br>             3-month change: -0.7%           </p>         </div>         </div>`)[0];
+                popup_143104945201037905f523c9be9576ac.setContent(html_9c92c245fce60e4c89895e6b0f202947);
+            
+        
+
+        circle_marker_789610a37b4e7813a11039291c3cc3e0.bindPopup(popup_143104945201037905f523c9be9576ac)
+        ;
+
+        
+    
+    
+            circle_marker_789610a37b4e7813a11039291c3cc3e0.bindTooltip(
+                `<div>
+                     Vancouver: +10.7% YoY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_437fdef2c5e71f98e9de25d850f53019 = L.circleMarker(
+                [48.4284, -123.3656],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3B6D11", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+        var popup_8fc97782f8c3f1722d1c8304af4ce161 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_083b6df1ac2d21a446a636f4a73445fc = $(`<div id="html_083b6df1ac2d21a446a636f4a73445fc" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Victoria</h4>           <p style="font-size:13px;margin:0">             <b>YoY change: +5.3%</b><br>             Current price: $875,594<br>             3-month change: -8.0%           </p>         </div>         </div>`)[0];
+                popup_8fc97782f8c3f1722d1c8304af4ce161.setContent(html_083b6df1ac2d21a446a636f4a73445fc);
+            
+        
+
+        circle_marker_437fdef2c5e71f98e9de25d850f53019.bindPopup(popup_8fc97782f8c3f1722d1c8304af4ce161)
+        ;
+
+        
+    
+    
+            circle_marker_437fdef2c5e71f98e9de25d850f53019.bindTooltip(
+                `<div>
+                     Victoria: +5.3% YoY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_32d1a1e5cebfd8bad69a6742c3ac5df8 = L.circleMarker(
+                [49.8951, -97.1384],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3B6D11", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_28f188827d435a9fa424c752f72d4839);
+        
+    
+        var popup_801ec00520a6f193180918f9c00cc6b5 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_9b820925453e5cc9b4a44ff07cebdbcf = $(`<div id="html_9b820925453e5cc9b4a44ff07cebdbcf" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Winnipeg</h4>           <p style="font-size:13px;margin:0">             <b>YoY change: +6.5%</b><br>             Current price: $370,075<br>             3-month change: -1.9%           </p>         </div>         </div>`)[0];
+                popup_801ec00520a6f193180918f9c00cc6b5.setContent(html_9b820925453e5cc9b4a44ff07cebdbcf);
+            
+        
+
+        circle_marker_32d1a1e5cebfd8bad69a6742c3ac5df8.bindPopup(popup_801ec00520a6f193180918f9c00cc6b5)
+        ;
+
+        
+    
+    
+            circle_marker_32d1a1e5cebfd8bad69a6742c3ac5df8.bindTooltip(
+                `<div>
+                     Winnipeg: +6.5% YoY
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

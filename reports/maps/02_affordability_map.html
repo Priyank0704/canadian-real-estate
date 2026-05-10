@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_dc52b176936eaeb5b7bc7074e50cc5ec {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <div style="position:fixed;bottom:30px;left:30px;z-index:1000;
+                background:white;padding:12px 16px;border-radius:8px;
+                border:1px solid #ccc;font-family:Arial;font-size:13px">
+      <b>Affordability Ratio</b><br>
+      <span style="color:#3B6D11">&#9679;</span> &lt;5x — Affordable<br>
+      <span style="color:#BA7517">&#9679;</span> 5–8x — Moderate<br>
+      <span style="color:#D85A30">&#9679;</span> 8–12x — Unaffordable<br>
+      <span style="color:#A32D2D">&#9679;</span> &gt;12x — Severely unaffordable<br>
+      <i style="font-size:11px;color:#888">Global threshold: 5x = severe</i>
+    </div>
+    
+    
+            <div class="folium-map" id="map_dc52b176936eaeb5b7bc7074e50cc5ec" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_dc52b176936eaeb5b7bc7074e50cc5ec = L.map(
+                "map_dc52b176936eaeb5b7bc7074e50cc5ec",
+                {
+                    center: [56.0, -96.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1ae2d16e8e6d8a3a11a27b63600c5d6c = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "CartoDB", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_1ae2d16e8e6d8a3a11a27b63600c5d6c.addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+            var circle_marker_87126cb13d954676e54645e23181058a = L.circleMarker(
+                [51.0447, -114.0719],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#BA7517", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.209271578947366, "stroke": true, "weight": 1.5}
+            ).addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+        var popup_b4e404798eb4d23258c2f3404d7fd9c1 = L.popup({"maxWidth": 280});
+
+        
+            
+                var html_721d8cabbd60d5da503f913c1ef59577 = $(`<div id="html_721d8cabbd60d5da503f913c1ef59577" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:220px">           <h4 style="margin:0 0 8px;color:#185FA5">Calgary</h4>           <p style="margin:0 0 6px;font-size:13px">             <b>Affordability ratio: 6.0x</b><br>             Annual income needed: $95,000<br>             Avg home price: $570,734           </p>           <div style="padding:6px;border-radius:4px;font-size:12px;                       background:#FAEEDA;                       color:#633806">             ⚠ Moderately unaffordable           </div>         </div>         </div>`)[0];
+                popup_b4e404798eb4d23258c2f3404d7fd9c1.setContent(html_721d8cabbd60d5da503f913c1ef59577);
+            
+        
+
+        circle_marker_87126cb13d954676e54645e23181058a.bindPopup(popup_b4e404798eb4d23258c2f3404d7fd9c1)
+        ;
+
+        
+    
+    
+            circle_marker_87126cb13d954676e54645e23181058a.bindTooltip(
+                `<div>
+                     Calgary: 6.0x annual income
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_645db2df8b1752d46c9c27d88f122d23 = L.circleMarker(
+                [53.5461, -113.4938],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3B6D11", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.85700909090909, "stroke": true, "weight": 1.5}
+            ).addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+        var popup_bacd23c3ee8b2a7314c0ded609783b6f = L.popup({"maxWidth": 280});
+
+        
+            
+                var html_85a4bb61c263eddac1f1d11469d6b9a9 = $(`<div id="html_85a4bb61c263eddac1f1d11469d6b9a9" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:220px">           <h4 style="margin:0 0 8px;color:#185FA5">Edmonton</h4>           <p style="margin:0 0 6px;font-size:13px">             <b>Affordability ratio: 4.9x</b><br>             Annual income needed: $88,000<br>             Avg home price: $429,514           </p>           <div style="padding:6px;border-radius:4px;font-size:12px;                       background:#EAF3DE;                       color:#27500A">             ✓ Relatively affordable           </div>         </div>         </div>`)[0];
+                popup_bacd23c3ee8b2a7314c0ded609783b6f.setContent(html_85a4bb61c263eddac1f1d11469d6b9a9);
+            
+        
+
+        circle_marker_645db2df8b1752d46c9c27d88f122d23.bindPopup(popup_bacd23c3ee8b2a7314c0ded609783b6f)
+        ;
+
+        
+    
+    
+            circle_marker_645db2df8b1752d46c9c27d88f122d23.bindTooltip(
+                `<div>
+                     Edmonton: 4.9x annual income
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a92f7eaa335c31626d3b56ad578ad95a = L.circleMarker(
+                [44.6488, -63.5752],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#BA7517", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.890641176470588, "stroke": true, "weight": 1.5}
+            ).addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+        var popup_622f436b6ea74c14737d1225a2d30bed = L.popup({"maxWidth": 280});
+
+        
+            
+                var html_4e1435fb78e69c3772c0afb136ee44a0 = $(`<div id="html_4e1435fb78e69c3772c0afb136ee44a0" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:220px">           <h4 style="margin:0 0 8px;color:#185FA5">Halifax</h4>           <p style="margin:0 0 6px;font-size:13px">             <b>Affordability ratio: 7.4x</b><br>             Annual income needed: $68,000<br>             Avg home price: $503,803           </p>           <div style="padding:6px;border-radius:4px;font-size:12px;                       background:#FAEEDA;                       color:#633806">             ⚠ Moderately unaffordable           </div>         </div>         </div>`)[0];
+                popup_622f436b6ea74c14737d1225a2d30bed.setContent(html_4e1435fb78e69c3772c0afb136ee44a0);
+            
+        
+
+        circle_marker_a92f7eaa335c31626d3b56ad578ad95a.bindPopup(popup_622f436b6ea74c14737d1225a2d30bed)
+        ;
+
+        
+    
+    
+            circle_marker_a92f7eaa335c31626d3b56ad578ad95a.bindTooltip(
+                `<div>
+                     Halifax: 7.4x annual income
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d8a43ee633070bcf3a77fed38bac4649 = L.circleMarker(
+                [43.2557, -79.8711],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D85A30", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.420479999999998, "stroke": true, "weight": 1.5}
+            ).addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+        var popup_52e5a27348990114fce67a2397d0203d = L.popup({"maxWidth": 280});
+
+        
+            
+                var html_6084f40392a12e8f82b54165ec19d3fb = $(`<div id="html_6084f40392a12e8f82b54165ec19d3fb" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:220px">           <h4 style="margin:0 0 8px;color:#185FA5">Hamilton</h4>           <p style="margin:0 0 6px;font-size:13px">             <b>Affordability ratio: 11.2x</b><br>             Annual income needed: $75,000<br>             Avg home price: $838,780           </p>           <div style="padding:6px;border-radius:4px;font-size:12px;                       background:#FCEBEB;                       color:#7A1010">             ✗ Severely unaffordable           </div>         </div>         </div>`)[0];
+                popup_52e5a27348990114fce67a2397d0203d.setContent(html_6084f40392a12e8f82b54165ec19d3fb);
+            
+        
+
+        circle_marker_d8a43ee633070bcf3a77fed38bac4649.bindPopup(popup_52e5a27348990114fce67a2397d0203d)
+        ;
+
+        
+    
+    
+            circle_marker_d8a43ee633070bcf3a77fed38bac4649.bindTooltip(
+                `<div>
+                     Hamilton: 11.2x annual income
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_22566cc80de036d784853866016fd9cf = L.circleMarker(
+                [45.5017, -73.5673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D85A30", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.909083076923075, "stroke": true, "weight": 1.5}
+            ).addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+        var popup_0e52659a725a84807fea719ea4fcffe6 = L.popup({"maxWidth": 280});
+
+        
+            
+                var html_b82635878bfef41d38efa45509409d79 = $(`<div id="html_b82635878bfef41d38efa45509409d79" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:220px">           <h4 style="margin:0 0 8px;color:#185FA5">Montreal</h4>           <p style="margin:0 0 6px;font-size:13px">             <b>Affordability ratio: 8.3x</b><br>             Annual income needed: $65,000<br>             Avg home price: $536,742           </p>           <div style="padding:6px;border-radius:4px;font-size:12px;                       background:#FCEBEB;                       color:#7A1010">             ✗ Severely unaffordable           </div>         </div>         </div>`)[0];
+                popup_0e52659a725a84807fea719ea4fcffe6.setContent(html_b82635878bfef41d38efa45509409d79);
+            
+        
+
+        circle_marker_22566cc80de036d784853866016fd9cf.bindPopup(popup_0e52659a725a84807fea719ea4fcffe6)
+        ;
+
+        
+    
+    
+            circle_marker_22566cc80de036d784853866016fd9cf.bindTooltip(
+                `<div>
+                     Montreal: 8.3x annual income
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_4b28e5adcd004d8d06fe2b292c429102 = L.circleMarker(
+                [45.4215, -75.6972],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#BA7517", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.472303157894736, "stroke": true, "weight": 1.5}
+            ).addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+        var popup_45a2c6c2b9aed1210c16954cdd7c6a87 = L.popup({"maxWidth": 280});
+
+        
+            
+                var html_89a10b4298962a1d622f2445860b10b9 = $(`<div id="html_89a10b4298962a1d622f2445860b10b9" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:220px">           <h4 style="margin:0 0 8px;color:#185FA5">Ottawa</h4>           <p style="margin:0 0 6px;font-size:13px">             <b>Affordability ratio: 7.1x</b><br>             Annual income needed: $95,000<br>             Avg home price: $670,724           </p>           <div style="padding:6px;border-radius:4px;font-size:12px;                       background:#FAEEDA;                       color:#633806">             ⚠ Moderately unaffordable           </div>         </div>         </div>`)[0];
+                popup_45a2c6c2b9aed1210c16954cdd7c6a87.setContent(html_89a10b4298962a1d622f2445860b10b9);
+            
+        
+
+        circle_marker_4b28e5adcd004d8d06fe2b292c429102.bindPopup(popup_45a2c6c2b9aed1210c16954cdd7c6a87)
+        ;
+
+        
+    
+    
+            circle_marker_4b28e5adcd004d8d06fe2b292c429102.bindTooltip(
+                `<div>
+                     Ottawa: 7.1x annual income
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b003918e8a84d914a575a6483d73dfdd = L.circleMarker(
+                [43.6532, -79.3832],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#A32D2D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 28.15296, "stroke": true, "weight": 1.5}
+            ).addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+        var popup_261b46eba254c5e58bf03d25ba5f062f = L.popup({"maxWidth": 280});
+
+        
+            
+                var html_b49ea86f4e5bdc18e7b1cd32abaf8164 = $(`<div id="html_b49ea86f4e5bdc18e7b1cd32abaf8164" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:220px">           <h4 style="margin:0 0 8px;color:#185FA5">Toronto</h4>           <p style="margin:0 0 6px;font-size:13px">             <b>Affordability ratio: 13.5x</b><br>             Annual income needed: $85,000<br>             Avg home price: $1,144,168           </p>           <div style="padding:6px;border-radius:4px;font-size:12px;                       background:#FCEBEB;                       color:#7A1010">             ✗ Severely unaffordable           </div>         </div>         </div>`)[0];
+                popup_261b46eba254c5e58bf03d25ba5f062f.setContent(html_b49ea86f4e5bdc18e7b1cd32abaf8164);
+            
+        
+
+        circle_marker_b003918e8a84d914a575a6483d73dfdd.bindPopup(popup_261b46eba254c5e58bf03d25ba5f062f)
+        ;
+
+        
+    
+    
+            circle_marker_b003918e8a84d914a575a6483d73dfdd.bindTooltip(
+                `<div>
+                     Toronto: 13.5x annual income
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2eedb4cbbbde249330547dde70080722 = L.circleMarker(
+                [49.2827, -123.1207],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#A32D2D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 30.321296385542166, "stroke": true, "weight": 1.5}
+            ).addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+        var popup_418a8f112dae83ea9d6a33c47ea894c4 = L.popup({"maxWidth": 280});
+
+        
+            
+                var html_e416c2c350afbb9423b787b50fbf0b12 = $(`<div id="html_e416c2c350afbb9423b787b50fbf0b12" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:220px">           <h4 style="margin:0 0 8px;color:#185FA5">Vancouver</h4>           <p style="margin:0 0 6px;font-size:13px">             <b>Affordability ratio: 15.3x</b><br>             Annual income needed: $83,000<br>             Avg home price: $1,267,223           </p>           <div style="padding:6px;border-radius:4px;font-size:12px;                       background:#FCEBEB;                       color:#7A1010">             ✗ Severely unaffordable           </div>         </div>         </div>`)[0];
+                popup_418a8f112dae83ea9d6a33c47ea894c4.setContent(html_e416c2c350afbb9423b787b50fbf0b12);
+            
+        
+
+        circle_marker_2eedb4cbbbde249330547dde70080722.bindPopup(popup_418a8f112dae83ea9d6a33c47ea894c4)
+        ;
+
+        
+    
+    
+            circle_marker_2eedb4cbbbde249330547dde70080722.bindTooltip(
+                `<div>
+                     Vancouver: 15.3x annual income
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_49d09f52683749d28e18d54635e74b54 = L.circleMarker(
+                [48.4284, -123.3656],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D85A30", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.470676923076923, "stroke": true, "weight": 1.5}
+            ).addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+        var popup_dbfeb3531af1ba27768f9ca76759f55a = L.popup({"maxWidth": 280});
+
+        
+            
+                var html_7bd2a37786a0b3d14c7dba90a45a820b = $(`<div id="html_7bd2a37786a0b3d14c7dba90a45a820b" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:220px">           <h4 style="margin:0 0 8px;color:#185FA5">Victoria</h4>           <p style="margin:0 0 6px;font-size:13px">             <b>Affordability ratio: 11.2x</b><br>             Annual income needed: $78,000<br>             Avg home price: $875,594           </p>           <div style="padding:6px;border-radius:4px;font-size:12px;                       background:#FCEBEB;                       color:#7A1010">             ✗ Severely unaffordable           </div>         </div>         </div>`)[0];
+                popup_dbfeb3531af1ba27768f9ca76759f55a.setContent(html_7bd2a37786a0b3d14c7dba90a45a820b);
+            
+        
+
+        circle_marker_49d09f52683749d28e18d54635e74b54.bindPopup(popup_dbfeb3531af1ba27768f9ca76759f55a)
+        ;
+
+        
+    
+    
+            circle_marker_49d09f52683749d28e18d54635e74b54.bindTooltip(
+                `<div>
+                     Victoria: 11.2x annual income
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_67560bb96dee0046c42a9ec863291f36 = L.circleMarker(
+                [49.8951, -97.1384],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#BA7517", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.167916666666667, "stroke": true, "weight": 1.5}
+            ).addTo(map_dc52b176936eaeb5b7bc7074e50cc5ec);
+        
+    
+        var popup_75261fce7f8b374a9486bc83164f19c8 = L.popup({"maxWidth": 280});
+
+        
+            
+                var html_49fb3b7ce9f6a67f7b6d292bc9a49106 = $(`<div id="html_49fb3b7ce9f6a67f7b6d292bc9a49106" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:220px">           <h4 style="margin:0 0 8px;color:#185FA5">Winnipeg</h4>           <p style="margin:0 0 6px;font-size:13px">             <b>Affordability ratio: 5.1x</b><br>             Annual income needed: $72,000<br>             Avg home price: $370,075           </p>           <div style="padding:6px;border-radius:4px;font-size:12px;                       background:#FAEEDA;                       color:#633806">             ⚠ Moderately unaffordable           </div>         </div>         </div>`)[0];
+                popup_75261fce7f8b374a9486bc83164f19c8.setContent(html_49fb3b7ce9f6a67f7b6d292bc9a49106);
+            
+        
+
+        circle_marker_67560bb96dee0046c42a9ec863291f36.bindPopup(popup_75261fce7f8b374a9486bc83164f19c8)
+        ;
+
+        
+    
+    
+            circle_marker_67560bb96dee0046c42a9ec863291f36.bindTooltip(
+                `<div>
+                     Winnipeg: 5.1x annual income
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

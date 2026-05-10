@@ -1,0 +1,7 @@
+f = open('reports/maps/05_combined_map.html', 'r') 
+content = f.read() 
+f.close() 
+print('LayerControl:', 'leaflet-control-layers' in content) 
+print('CircleMarker:', 'circleMarker' in content) 
+print('FeatureGroup:', 'FeatureGroup' in content) 
+print('File size:', len(content), 'bytes') 

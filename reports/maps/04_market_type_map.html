@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_932c5aedc5b4a1b8402280148538769f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <div style="position:fixed;bottom:30px;left:30px;z-index:1000;
+                background:white;padding:12px 16px;border-radius:8px;
+                border:1px solid #ccc;font-family:Arial;font-size:13px">
+      <b>Market Type (SNLR)</b><br>
+      <span style="color:#27500A">&#9679;</span> Seller's market (&gt;0.6)<br>
+      <span style="color:#BA7517">&#9679;</span> Balanced (0.4–0.6)<br>
+      <span style="color:#A32D2D">&#9679;</span> Buyer's market (&lt;0.4)<br>
+      <i style="font-size:11px;color:#888">SNLR = Sales / New Listings</i>
+    </div>
+    
+    
+            <div class="folium-map" id="map_932c5aedc5b4a1b8402280148538769f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_932c5aedc5b4a1b8402280148538769f = L.map(
+                "map_932c5aedc5b4a1b8402280148538769f",
+                {
+                    center: [56.0, -96.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_72c9c54c2ef8c031522e781ff52c4068 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "CartoDB", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_72c9c54c2ef8c031522e781ff52c4068.addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+            var circle_marker_c32cf3dbd2c2d76790f4e5d55eb82a90 = L.circleMarker(
+                [51.0447, -114.0719],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+        var popup_a86519eb04425c1fc5f05f81cbf758e7 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_02f5b99ca037e61a47980a7d1a189415 = $(`<div id="html_02f5b99ca037e61a47980a7d1a189415" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Calgary</h4>           <p style="font-size:13px;margin:0">             <b>Seller's market</b><br>             SNLR: 0.78<br>             Active listings: 6,967<br>             Days on market: 19           </p>         </div>         </div>`)[0];
+                popup_a86519eb04425c1fc5f05f81cbf758e7.setContent(html_02f5b99ca037e61a47980a7d1a189415);
+            
+        
+
+        circle_marker_c32cf3dbd2c2d76790f4e5d55eb82a90.bindPopup(popup_a86519eb04425c1fc5f05f81cbf758e7)
+        ;
+
+        
+    
+    
+            circle_marker_c32cf3dbd2c2d76790f4e5d55eb82a90.bindTooltip(
+                `<div>
+                     Calgary: Seller's market (SNLR=0.78)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9a3b44b03c34b6dc1599cd95a766e798 = L.circleMarker(
+                [53.5461, -113.4938],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+        var popup_8a3e023171b64ccdc46ca69b32871427 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_dfed66684e3480061cdce24fa85e86f4 = $(`<div id="html_dfed66684e3480061cdce24fa85e86f4" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Edmonton</h4>           <p style="font-size:13px;margin:0">             <b>Seller's market</b><br>             SNLR: 0.76<br>             Active listings: 5,608<br>             Days on market: 20           </p>         </div>         </div>`)[0];
+                popup_8a3e023171b64ccdc46ca69b32871427.setContent(html_dfed66684e3480061cdce24fa85e86f4);
+            
+        
+
+        circle_marker_9a3b44b03c34b6dc1599cd95a766e798.bindPopup(popup_8a3e023171b64ccdc46ca69b32871427)
+        ;
+
+        
+    
+    
+            circle_marker_9a3b44b03c34b6dc1599cd95a766e798.bindTooltip(
+                `<div>
+                     Edmonton: Seller's market (SNLR=0.76)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_76822f543934ddd4c1af3ad26d6ee709 = L.circleMarker(
+                [44.6488, -63.5752],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+        var popup_5bbafb8a45471920dabfc127541f440d = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_0004dbc3a34176dc9ad6f0373742e16c = $(`<div id="html_0004dbc3a34176dc9ad6f0373742e16c" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Halifax</h4>           <p style="font-size:13px;margin:0">             <b>Seller's market</b><br>             SNLR: 0.80<br>             Active listings: 1,409<br>             Days on market: 22           </p>         </div>         </div>`)[0];
+                popup_5bbafb8a45471920dabfc127541f440d.setContent(html_0004dbc3a34176dc9ad6f0373742e16c);
+            
+        
+
+        circle_marker_76822f543934ddd4c1af3ad26d6ee709.bindPopup(popup_5bbafb8a45471920dabfc127541f440d)
+        ;
+
+        
+    
+    
+            circle_marker_76822f543934ddd4c1af3ad26d6ee709.bindTooltip(
+                `<div>
+                     Halifax: Seller's market (SNLR=0.80)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ed170c4eae1ebe293d83e8fe3f00d889 = L.circleMarker(
+                [43.2557, -79.8711],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+        var popup_d9d43d9ff23826a10f31f700864826c8 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_0bba6977114e28672263e63bd0c36a5d = $(`<div id="html_0bba6977114e28672263e63bd0c36a5d" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Hamilton</h4>           <p style="font-size:13px;margin:0">             <b>Seller's market</b><br>             SNLR: 0.80<br>             Active listings: 2,856<br>             Days on market: 16           </p>         </div>         </div>`)[0];
+                popup_d9d43d9ff23826a10f31f700864826c8.setContent(html_0bba6977114e28672263e63bd0c36a5d);
+            
+        
+
+        circle_marker_ed170c4eae1ebe293d83e8fe3f00d889.bindPopup(popup_d9d43d9ff23826a10f31f700864826c8)
+        ;
+
+        
+    
+    
+            circle_marker_ed170c4eae1ebe293d83e8fe3f00d889.bindTooltip(
+                `<div>
+                     Hamilton: Seller's market (SNLR=0.80)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0e8486bfcbc5ac7bdd8443e74df83455 = L.circleMarker(
+                [45.5017, -73.5673],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+        var popup_5cd7872a160e6f22c2d048a534eabf35 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_941f830f06d52776013218a7247db1d9 = $(`<div id="html_941f830f06d52776013218a7247db1d9" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Montreal</h4>           <p style="font-size:13px;margin:0">             <b>Seller's market</b><br>             SNLR: 0.67<br>             Active listings: 13,288<br>             Days on market: 22           </p>         </div>         </div>`)[0];
+                popup_5cd7872a160e6f22c2d048a534eabf35.setContent(html_941f830f06d52776013218a7247db1d9);
+            
+        
+
+        circle_marker_0e8486bfcbc5ac7bdd8443e74df83455.bindPopup(popup_5cd7872a160e6f22c2d048a534eabf35)
+        ;
+
+        
+    
+    
+            circle_marker_0e8486bfcbc5ac7bdd8443e74df83455.bindTooltip(
+                `<div>
+                     Montreal: Seller's market (SNLR=0.67)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2878f07332a6a3372c7ffe31e7463c32 = L.circleMarker(
+                [45.4215, -75.6972],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+        var popup_83c3745dbbf151362a2c389f2252d465 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_b4d4cbe5d83403d87bdd75b7764e191a = $(`<div id="html_b4d4cbe5d83403d87bdd75b7764e191a" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Ottawa</h4>           <p style="font-size:13px;margin:0">             <b>Seller's market</b><br>             SNLR: 0.81<br>             Active listings: 4,696<br>             Days on market: 19           </p>         </div>         </div>`)[0];
+                popup_83c3745dbbf151362a2c389f2252d465.setContent(html_b4d4cbe5d83403d87bdd75b7764e191a);
+            
+        
+
+        circle_marker_2878f07332a6a3372c7ffe31e7463c32.bindPopup(popup_83c3745dbbf151362a2c389f2252d465)
+        ;
+
+        
+    
+    
+            circle_marker_2878f07332a6a3372c7ffe31e7463c32.bindTooltip(
+                `<div>
+                     Ottawa: Seller's market (SNLR=0.81)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_849b42ec0c41a4991b01f16ec619b301 = L.circleMarker(
+                [43.6532, -79.3832],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+        var popup_774eddd495a94962471c7a1f2ba2b82c = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_8f89bd0199253bc2b4ef0d09635ab70e = $(`<div id="html_8f89bd0199253bc2b4ef0d09635ab70e" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Toronto</h4>           <p style="font-size:13px;margin:0">             <b>Seller's market</b><br>             SNLR: 0.74<br>             Active listings: 21,245<br>             Days on market: 15           </p>         </div>         </div>`)[0];
+                popup_774eddd495a94962471c7a1f2ba2b82c.setContent(html_8f89bd0199253bc2b4ef0d09635ab70e);
+            
+        
+
+        circle_marker_849b42ec0c41a4991b01f16ec619b301.bindPopup(popup_774eddd495a94962471c7a1f2ba2b82c)
+        ;
+
+        
+    
+    
+            circle_marker_849b42ec0c41a4991b01f16ec619b301.bindTooltip(
+                `<div>
+                     Toronto: Seller's market (SNLR=0.74)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b26eeffd4d7f9aaa47cb30c74c054083 = L.circleMarker(
+                [49.2827, -123.1207],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+        var popup_b7a704f6d77135cd2718ed3ec0c82ff2 = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_41b9dc8b0e1d0440ad4277448fac0f1e = $(`<div id="html_41b9dc8b0e1d0440ad4277448fac0f1e" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Vancouver</h4>           <p style="font-size:13px;margin:0">             <b>Seller's market</b><br>             SNLR: 0.66<br>             Active listings: 8,958<br>             Days on market: 18           </p>         </div>         </div>`)[0];
+                popup_b7a704f6d77135cd2718ed3ec0c82ff2.setContent(html_41b9dc8b0e1d0440ad4277448fac0f1e);
+            
+        
+
+        circle_marker_b26eeffd4d7f9aaa47cb30c74c054083.bindPopup(popup_b7a704f6d77135cd2718ed3ec0c82ff2)
+        ;
+
+        
+    
+    
+            circle_marker_b26eeffd4d7f9aaa47cb30c74c054083.bindTooltip(
+                `<div>
+                     Vancouver: Seller's market (SNLR=0.66)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f2d38dcd8d31af7b81569ef4685ca489 = L.circleMarker(
+                [48.4284, -123.3656],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+        var popup_fbc7288bae86e56f02e59d369241a0ba = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_11fb5369978fe3483b488e07f6438c51 = $(`<div id="html_11fb5369978fe3483b488e07f6438c51" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Victoria</h4>           <p style="font-size:13px;margin:0">             <b>Seller's market</b><br>             SNLR: 0.74<br>             Active listings: 1,023<br>             Days on market: 24           </p>         </div>         </div>`)[0];
+                popup_fbc7288bae86e56f02e59d369241a0ba.setContent(html_11fb5369978fe3483b488e07f6438c51);
+            
+        
+
+        circle_marker_f2d38dcd8d31af7b81569ef4685ca489.bindPopup(popup_fbc7288bae86e56f02e59d369241a0ba)
+        ;
+
+        
+    
+    
+            circle_marker_f2d38dcd8d31af7b81569ef4685ca489.bindTooltip(
+                `<div>
+                     Victoria: Seller's market (SNLR=0.74)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_cc7d8d0c919c0edd3a124f8611bc3d42 = L.circleMarker(
+                [49.8951, -97.1384],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27500A", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 1.5}
+            ).addTo(map_932c5aedc5b4a1b8402280148538769f);
+        
+    
+        var popup_cc44e05df2e9cdb026607b5c178d699b = L.popup({"maxWidth": 250});
+
+        
+            
+                var html_495d6dc0e312db0f5c0c506b58072abd = $(`<div id="html_495d6dc0e312db0f5c0c506b58072abd" style="width: 100.0%; height: 100.0%;">         <div style="font-family:Arial;min-width:200px">           <h4 style="margin:0 0 8px">Winnipeg</h4>           <p style="font-size:13px;margin:0">             <b>Seller's market</b><br>             SNLR: 0.65<br>             Active listings: 3,318<br>             Days on market: 22           </p>         </div>         </div>`)[0];
+                popup_cc44e05df2e9cdb026607b5c178d699b.setContent(html_495d6dc0e312db0f5c0c506b58072abd);
+            
+        
+
+        circle_marker_cc7d8d0c919c0edd3a124f8611bc3d42.bindPopup(popup_cc44e05df2e9cdb026607b5c178d699b)
+        ;
+
+        
+    
+    
+            circle_marker_cc7d8d0c919c0edd3a124f8611bc3d42.bindTooltip(
+                `<div>
+                     Winnipeg: Seller's market (SNLR=0.65)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
