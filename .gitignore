@@ -6,3 +6,4 @@ reports/charts/*.html
 reports/charts/*.png 
 venv/ 
 __pycache__/ 
+venv/ 
