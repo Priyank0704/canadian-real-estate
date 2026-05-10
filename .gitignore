@@ -1,0 +1,8 @@
+data/raw/*.csv 
+data/raw/*.zip 
+data/processed/*.parquet 
+reports/maps/*.html 
+reports/charts/*.html 
+reports/charts/*.png 
+venv/ 
+__pycache__/ 
