@@ -186,4 +186,4 @@ streamlit run src/dashboard/app.py
 **Priyank** — Post Graduate in Big Data Analytics (2024) and Artificial Intelligence (2025)
 
 - GitHub: [@Priyank0704](https://github.com/Priyank0704)
-- Project 1: [Fraud Detection MLOps Pipeline](https://github.com/Priyank0704/fraud-mlops)
+- Project : [Fraud Detection MLOps Pipeline](https://github.com/Priyank0704/fraud-mlops)
